@@ -1,0 +1,214 @@
+/*Colors*/
+:root {
+    --primary-color: #5142FC;
+    --done-color: #47A432;
+    --warning-color: #FFBD0C;
+    --critical-color: #DF4949;
+    --white: #ffff;
+    --secondary: #EBEBEB;
+    --backround-color: #151420;
+    --gray: #32323F;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Urbanist', sans-serif;
+}
+
+/* HEADER'S STYLES */
+header {
+    background-color: var(--backround-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    border-block-end: 1px solid #8A8AA0;
+}
+
+.nav_list {
+    display: flex;
+}
+
+.nav_list li {
+    list-style: none;
+    margin-inline-end: 40px;
+}
+
+.nav_list li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.nav_list li a svg {
+    margin-inline-start: 6px;
+}
+
+.nav_right {
+    display: flex;
+    align-items: center;
+}
+
+.nav_search_icon {
+    margin-inline-end: 38px;
+}
+
+.nav_right .nav_right_button {
+    width: 210px;
+    height: 48px;
+    border: none;
+    border-radius: 24px;
+    padding: 13px 35px;
+    border: 1px solid #5142FC;
+    background-color: var(--backround-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.wallet_icon {
+    margin-inline-end: 10px;
+}
+
+/* HEADER'S STYLES END */
+
+
+/* Main's Styles */
+main {
+    background-color: var(--backround-color);
+    width: 100%;
+    min-height: 100vh;
+}
+
+    /*Hero's syles*/
+
+.hero {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hero_info {
+    width: 634px;
+    height: 364p;
+    margin-block-start: 134px;
+}
+
+.hero_title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 68px;
+    color: white;
+}
+
+.hero_title_fancy {
+    background: linear-gradient(180deg, rgba(226,80,229,1) 10%, rgba(75,80,230,1) 55%);
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 4px transparent;
+    color: var(--backround-color);
+    padding: 6px 0;
+}
+
+.hero_SignUp {
+    height: 216px;
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero_SignUp h1 {
+    font-size: 48px;
+    color: white;
+    margin-block-end: 12px;
+}
+
+.hero_SignUp ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.hero_SignUp ul a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: #8A8AA0;
+}
+
+.sign_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign_form h2 {
+    font-size: 3.6rem;
+    color: white;
+    margin-block-start: 80px;
+    margin-block-end: 40px;
+} 
+
+.register-form {
+    width: 690px;
+    height: 628px;
+}
+
+.input {
+    width: 100%;
+    outline: none;
+    border: 1px solid #343444;
+    margin-block-end: 24px;
+    background-color: var(--backround-color);
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+}
+
+.forgot_password {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox{
+    outline: none;
+    border: 1px solid #343444;
+    background-color: var(--backround-color);
+}
+
+.forgot_password label {
+    font-size: 1.4rem;
+    color: white;
+
+}
+
+.forgot_password a {
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.primary_button {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backround-color);
+    border: 1.5px solid #FFFFFF;
+    color: white;
+    border-radius: 56px;
+    margin-block-start: 32px;
+}
