@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Collection extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
+    public function users(){
+        return $this->belongsTo(Users::class);
+    }
+
+    public function nfts(){
+        return $this->hasMany(Nft::class);
+    }
+
+    public function likes () {
+        return $this->morphMany(Like::class, 'likeable');
+    }
 }

@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Nft extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
+    public function owner(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function author() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function collections(){
+        return $this->belongsTo(Collection::class);
+    }
+
+    public function likes () {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
 }

@@ -21,7 +21,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $verification = auth()->id();
+
+        return view('auth.register',['verification' => $verification]);
     }
 
     /**
@@ -50,6 +52,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->action([NftController::class, 'index']);
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 }

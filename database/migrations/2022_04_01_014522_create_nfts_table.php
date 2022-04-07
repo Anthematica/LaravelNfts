@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('author_id')->constrained('users');
             $table->foreignId('owner_id')->constrained('users');
-            $table->foreignId('collection_id')->constrained('users');
+            $table->foreignId('collection_id')->constrained('collections');
             $table->string('img_src');
             $table->string('title');
             $table->text('description');

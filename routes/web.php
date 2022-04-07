@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NftController;
+use App\Http\Controllers\NftLikeController;
+use App\Models\Nft;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::resource('nfts', NftController::class);
+Route::resource('nfts', NftController::class)->middleware('auth');
+Route::resource('collections', CollectionController::class)->middleware('auth');
+
+Route::resource('nfts.likes', NftLikeController::class)->only(['store', 'destroy']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
