@@ -10,7 +10,8 @@
 <body>
     @include('_partials.header')
     @yield('main')
+  
 
-    <script src="/js/index.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

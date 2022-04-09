@@ -77,6 +77,8 @@
            
             <button type="submit" class="primary_button">Save</button>
         </form>
+
+        <script src="/js/create.js"></script>
     </section>
 </main>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LikeToggle;
 use App\Models\Like;
 use App\Models\Nft;
 use App\Providers\RouteServiceProvider;
@@ -20,11 +21,15 @@ class NftLikeController extends Controller
             
         );
 
+        broadcast(new LikeToggle($nft));
+
         return  redirect()->intended(RouteServiceProvider::HOME);
     }
 
     public function destroy(Nft $nft, Like $like) { 
 
+        broadcast(new LikeToggle($nft));
+        
         $like->delete();
 
         return back();

@@ -55,7 +55,7 @@
         </div>
         <div class="carrusel-nfts__container">
              @foreach ($nfts as $nft )
-            <div class="cards-container">
+            <div class="cards-container" id="nft_{{$nft->id}}">
                 <div class="container-image">
                     <img src="{{'storage/' . $nft->img_src}}" alt="nft image" class="nft_img">
                     @php
@@ -72,17 +72,17 @@
                             @method('DELETE')
 
                             <button class="image-likes" type="submit" id="like">
-                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.7145 1.64672C12.9744 -0.092941 10.1436 -0.092941 8.40393 1.64672L7.99986 2.05055L7.59603 1.64672C5.85637 -0.0931764 3.02531 -0.0931764 1.28565 1.64672C-0.418689 3.35105 -0.429756 6.05261 1.25998 7.93096C2.80114 9.64354 7.34643 13.3435 7.53928 13.5001C7.6702 13.6065 7.82773 13.6583 7.98432 13.6583C7.9895 13.6583 7.99468 13.6583 7.99963 13.6581C8.16163 13.6656 8.32481 13.61 8.45997 13.5001C8.65282 13.3435 13.1986 9.64354 14.7402 7.93072C16.4297 6.05261 16.4186 3.35105 14.7145 1.64672ZM13.69 6.98578C12.4884 8.32066 9.18546 11.0738 7.99963 12.0508C6.8138 11.074 3.51155 8.32114 2.31018 6.98602C1.13142 5.67586 1.12035 3.80999 2.28452 2.64582C2.87908 2.05149 3.6599 1.75409 4.44072 1.75409C5.22154 1.75409 6.00236 2.05126 6.59693 2.64582L7.48512 3.53401C7.59085 3.63974 7.72412 3.70285 7.86399 3.72498C8.09099 3.77372 8.33729 3.71038 8.51389 3.53425L9.40256 2.64582C10.5919 1.45693 12.5266 1.45716 13.7152 2.64582C14.8794 3.80999 14.8683 5.67586 13.69 6.98578Z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/>
                                 </svg>
-                                    {{$nft->likes->count()}}
+                                <span class="amount_likes"> {{$nft->likes->count()}}</span>   
                             </button>
                         @else
                             <button class="image-likes" type="submit">
-                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.7145 1.64672C12.9744 -0.092941 10.1436 -0.092941 8.40393 1.64672L7.99986 2.05055L7.59603 1.64672C5.85637 -0.0931764 3.02531 -0.0931764 1.28565 1.64672C-0.418689 3.35105 -0.429756 6.05261 1.25998 7.93096C2.80114 9.64354 7.34643 13.3435 7.53928 13.5001C7.6702 13.6065 7.82773 13.6583 7.98432 13.6583C7.9895 13.6583 7.99468 13.6583 7.99963 13.6581C8.16163 13.6656 8.32481 13.61 8.45997 13.5001C8.65282 13.3435 13.1986 9.64354 14.7402 7.93072C16.4297 6.05261 16.4186 3.35105 14.7145 1.64672ZM13.69 6.98578C12.4884 8.32066 9.18546 11.0738 7.99963 12.0508C6.8138 11.074 3.51155 8.32114 2.31018 6.98602C1.13142 5.67586 1.12035 3.80999 2.28452 2.64582C2.87908 2.05149 3.6599 1.75409 4.44072 1.75409C5.22154 1.75409 6.00236 2.05126 6.59693 2.64582L7.48512 3.53401C7.59085 3.63974 7.72412 3.70285 7.86399 3.72498C8.09099 3.77372 8.33729 3.71038 8.51389 3.53425L9.40256 2.64582C10.5919 1.45693 12.5266 1.45716 13.7152 2.64582C14.8794 3.80999 14.8683 5.67586 13.69 6.98578Z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/>
                                 </svg>
-                                    {{$nft->likes->count()}}
+                                <span class="amount_likes"> {{$nft->likes->count()}}</span>
                             </button>
                         @endif 
                     </form>
@@ -107,6 +107,49 @@
             </div>
         @endforeach
         </div>
+     </section>
+     @include('_partials.topSeller')
+
+     {{-- Collections --}}
+     <section class="collections">
+        <div class="collection_title carrusel-cards_title">
+            <h1>Popular Collection</h1>
+            <a href="/">Explore more </a>
+        </div>
+
+        <div class="collection_containers">
+            <div class="collection_card">
+                <button class="image-likes collection_likes" type="submit" id="like">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/>
+                    </svg>
+                    <span class="amount_likes"> 100</span>   
+                </button>
+                <div class="seller_container_images collection_sellers">
+                    <div class="sellers seller_collection">
+                        <div class="seller-image seller_image_collection">
+                            <div class="check">
+                                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.28014 11.3408C6.13989 11.4818 5.94864 11.5605 5.74989 11.5605C5.55114 11.5605 5.35989 11.4818 5.21964 11.3408L0.985143 7.10553C0.545643 6.66603 0.545643 5.95353 0.985143 5.51478L1.51539 4.98453C1.95489 4.54503 2.66664 4.54503 3.10614 4.98453L5.74989 7.62828L12.8936 0.484532C13.3331 0.0450322 14.0456 0.0450322 14.4844 0.484532L15.0146 1.01478C15.4541 1.45428 15.4541 2.16678 15.0146 2.60553L6.28014 11.3408Z" fill="white"/>
+                                </svg>    
+                            </div>
+                        </div>
+                        <div class="collection_info">
+                            <h2>Creative Art Collection</h2>
+                            <div class="collection_author">
+                                <p class="created_by">Created by</p>
+                                <p class="author_name">Anthony</p>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="collection_images_container">
+                    <div class="collection_image_first"></div>
+                    <div class="collection_image_second"></div>
+                    <div class="collection_image_third"></div>
+                    <div class="collection_image_fourth"></div>
+                </div>
+            </div>
      </section>
     </main>
 @endsection
