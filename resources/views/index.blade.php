@@ -118,38 +118,55 @@
         </div>
 
         <div class="collection_containers">
-            <div class="collection_card">
-                <button class="image-likes collection_likes" type="submit" id="like">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                        <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/>
-                    </svg>
-                    <span class="amount_likes"> 100</span>   
-                </button>
-                <div class="seller_container_images collection_sellers">
-                    <div class="sellers seller_collection">
-                        <div class="seller-image seller_image_collection">
-                            <div class="check">
-                                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.28014 11.3408C6.13989 11.4818 5.94864 11.5605 5.74989 11.5605C5.55114 11.5605 5.35989 11.4818 5.21964 11.3408L0.985143 7.10553C0.545643 6.66603 0.545643 5.95353 0.985143 5.51478L1.51539 4.98453C1.95489 4.54503 2.66664 4.54503 3.10614 4.98453L5.74989 7.62828L12.8936 0.484532C13.3331 0.0450322 14.0456 0.0450322 14.4844 0.484532L15.0146 1.01478C15.4541 1.45428 15.4541 2.16678 15.0146 2.60553L6.28014 11.3408Z" fill="white"/>
-                                </svg>    
+            @foreach ( $nftCollections as $nftCollection )
+                <div class="collection_card">
+                    <button class="image-likes collection_likes" type="submit" id="like">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/>
+                        </svg>
+                        <span class="amount_likes"> 100</span>   
+                    </button>
+                    <div class="seller_container_images collection_sellers">
+                        <div class="sellers seller_collection">
+                            <div class="seller-image seller_image_collection">
+                                <div class="check">
+                                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.28014 11.3408C6.13989 11.4818 5.94864 11.5605 5.74989 11.5605C5.55114 11.5605 5.35989 11.4818 5.21964 11.3408L0.985143 7.10553C0.545643 6.66603 0.545643 5.95353 0.985143 5.51478L1.51539 4.98453C1.95489 4.54503 2.66664 4.54503 3.10614 4.98453L5.74989 7.62828L12.8936 0.484532C13.3331 0.0450322 14.0456 0.0450322 14.4844 0.484532L15.0146 1.01478C15.4541 1.45428 15.4541 2.16678 15.0146 2.60553L6.28014 11.3408Z" fill="white"/>
+                                    </svg>    
+                                </div>
                             </div>
+                            <div class="collection_info">
+                                <h2>{{$nftCollection->name}}</h2>
+                                <div class="collection_author">
+                                    <p class="created_by">Created by</p>
+                                    <p class="author_name">Anthony</p>
+                                </div>
+                            </div>  
                         </div>
-                        <div class="collection_info">
-                            <h2>Creative Art Collection</h2>
-                            <div class="collection_author">
-                                <p class="created_by">Created by</p>
-                                <p class="author_name">Anthony</p>
+                    </div>
+
+                    @php
+                        $nftsImage = ($nftCollection->nfts);
+                        $count = 0;
+                    @endphp
+
+                    <div class="collection_images_container">
+                        @foreach ($nftsImage as $nftImage)
+                            
+                             @php
+                                 $count = $count + 1;
+                             @endphp    
+                             
+                            <div class="collection_image_{{$count}}">
+                                <img src="{{'storage/' . $nftImage->img_src}}" alt="nft image" class="nft_img">
                             </div>
-                        </div>  
+                        @endforeach
+                       
                     </div>
                 </div>
-                <div class="collection_images_container">
-                    <div class="collection_image_first"></div>
-                    <div class="collection_image_second"></div>
-                    <div class="collection_image_third"></div>
-                    <div class="collection_image_fourth"></div>
-                </div>
-            </div>
+               
+            @endforeach
+           
      </section>
     </main>
 @endsection

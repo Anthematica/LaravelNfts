@@ -606,26 +606,36 @@ main {
     grid-template-columns: 174px 112px 112px;
 }
 
-.collection_image_first {
+.collection_image_1 {
     grid-area: first;
+    height: 272px;
     background-color: #7A798A;
     border-radius: 8px;
 }
 
-.collection_image_second {
+.collection_image_2 {
     grid-area: second;
     background-color: #7A798A;
     border-radius: 8px;
+   
 }
 
-.collection_image_third {
+.collection_image_3 {
     grid-area: third;
     background-color: #7A798A;
     border-radius: 8px;
 }
 
-.collection_image_fourth {
+.collection_image_4 {
     grid-area: fourth;
     background-color: #7A798A;
     border-radius: 8px;
+    height: 133px;
+}
+
+.collection_containers {
+    display: flex;
+    width: 100%;
+    column-gap: 20px;
+    overflow-x: scroll;
 }
